@@ -94,3 +94,15 @@ Now if we run `gradle putOnFragrance takeShower`, we see that we do the tasks
 in the proper order.
 
 */
+/*
+
+Let's check out a few other things we can do with task dependencies. We can
+depend on multiple tasks:
+
+*/
+
+task getReady {
+    // Remember that when assigning a collection to a property, we need the
+    // equals sign
+    dependsOn = ["takeShower", "eatBreakfast", "putOnShoes"]
+}
