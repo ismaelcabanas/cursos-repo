@@ -56,3 +56,16 @@ We can also add actions to the start of the list using `doFirst`.
 */
 
 myTask4.doFirst {println "Do this first"}
+
+/*
+Instead of declaring a task and then setting its properties afterwards, we can
+also give the task a configuration closure when it's declared.
+*/
+
+task myTask6 {
+    description "Here's a task with a configuration block"
+    group "Some group"
+    doLast {
+        println "Here's the action"
+    }
+}
