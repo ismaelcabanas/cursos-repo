@@ -64,3 +64,20 @@ argument, by default that argument is just called `it`.
 */
 
 myList.each{println "Compactly printing each list item: $it"}
+
+/*
+Groovy has a simplified syntax for declaring classes. Note that these classes
+are essentially to Java classes under the hood. Groovy automatically generates
+getters and setters for class properties.
+*/
+
+class GroovyGreeter {
+    String greeting = "Default greeting"
+    def printGreeting(){println "Greeting: $greeting"}
+}
+
+def myGroovyGreeter = new GroovyGreeter()
+
+myGroovyGreeter.printGreeting()
+myGroovyGreeter.greeting = "My custom greeting"
+myGroovyGreeter.printGreeting()
