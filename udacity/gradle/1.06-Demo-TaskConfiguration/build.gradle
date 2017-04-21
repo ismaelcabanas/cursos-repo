@@ -69,3 +69,24 @@ task myTask6 {
         println "Here's the action"
     }
 }
+
+/*
+There are two important things to know to understand this configuration
+closure. The first is that when this closure is evaluated, its delegate is the
+task object. That means when you're assigning to `group`, you're really
+assigning to `task.group`. The second thing is that the properties of the task
+object are decorated with setters with the same names. That's how we can omit
+equals signs when we're to assigning to properties. We're really calling a
+setter and leaving off the parentheses.
+The only gotcha is that you must include the equals sign or parentheses when
+assigning a collection to a property.
+*/
+
+task myTask7 {
+    description("Description") // Function call works
+    //description "Description" // This is identical to the line above
+    group = "Some group" // Assignment also works
+    doLast { // We can also omit the parentheses, because Groovy syntax
+        println "Here's the action"
+    }
+}
