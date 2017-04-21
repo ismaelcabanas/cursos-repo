@@ -37,3 +37,22 @@ def applyTwice(func, arg){
 foo = 5
 def fooDoubledTwice = applyTwice(doubleIt, foo)
 println "Applying doubleIt twice to $foo equals $fooDoubledTwice"
+
+/*
+A language where functions are just objects that can be passed around is
+said to have "first class functions". The implications of this style of
+programming go quite deep and beyond the scope of this course. A search for
+"first class function" or "functional programming" will give you more
+information.
+Groovy allows for very sophisticated list processing using closures. We can
+declare a list using a literal.
+*/
+
+def myList = ["Gradle", "Groovy", "Android"]
+
+/*
+We can execute a closure for each item in the list.
+*/
+
+def printItem = {item -> println "List item: $item"}
+myList.each(printItem)
