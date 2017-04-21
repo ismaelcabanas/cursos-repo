@@ -21,3 +21,5 @@ selecting View > Syntax > Open all with current extension as... > Groovy
 */
 
 task groovy << {}
+
+println "Hello Groovy!"
