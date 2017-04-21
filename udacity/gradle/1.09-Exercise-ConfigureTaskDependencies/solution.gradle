@@ -54,19 +54,22 @@ task addSweetener {
 }
 
 task drink {
-    shouldRunAfter "addSweetener"
+    dependsOn "pour"
+    mustRunAfter "addSweetener"
     doLast {
         println "Drinking. Gulp, gulp, gulp."
     }
 }
 
 task blackCoffee {
+    dependsOn "drink"
     doLast {
         println "Mmmm, bitter! just how I like it."
     }
 }
 
 task sweetCoffee {
+    dependsOn drink, addSweetener
     doLast {
         println "Mmmm, sweet! just how I like it."
     }
