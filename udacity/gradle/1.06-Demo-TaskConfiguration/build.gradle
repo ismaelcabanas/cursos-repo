@@ -23,3 +23,13 @@ Because Groovy syntax is awesome, we can leave off the parentheses.
 */
 
 task "myTask3"
+
+/*
+This next part is a little tricky. Gradle uses an advanced Groovy feature to
+change how the syntax of task declaration is compiled. The upshot is that we
+can knock off the quotes.
+For more info, check out Mark's post on Stack Overflow here:
+http://stackoverflow.com/questions/27584463/understing-the-groovy-syntax-in-a-gradle-task-definition
+*/
+
+task myTask4
