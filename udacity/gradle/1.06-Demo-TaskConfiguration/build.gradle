@@ -42,3 +42,11 @@ description and a group to this task.
 
 myTask4.description = "This is what's shown in the task list"
 myTask4.group = "This is the heading for this task in the task list,"
+
+/*
+The most important property of a task is the list of actions it will perform.
+Instead of setting the `actions` property of our task, we can add a closure to
+the end of the list using the `doLast` method.
+*/
+
+myTask4.doLast {println "Do this last"}
