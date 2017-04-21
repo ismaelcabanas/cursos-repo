@@ -81,3 +81,26 @@ def myGroovyGreeter = new GroovyGreeter()
 myGroovyGreeter.printGreeting()
 myGroovyGreeter.greeting = "My custom greeting"
 myGroovyGreeter.printGreeting()
+
+/*
+The last Groovy feature we'll cover is that closures can have a delegate
+object. Any variables or methods referenced in the closure that don't have a
+local definition are then evaluated against the closure's delegate. Let's make
+a closure that will access the property and method of our GroovyGreeter class.
+*/
+
+def greetingClosure = {
+    greeting = "Setting the greeting from a closure"
+    printGreeting()
+}
+
+// greetingClosure() // This doesn't work, because `greeting` isn't defined
+greetingClosure.delegate = myGroovyGreeter
+greetingClosure() // This works as `greeting` is a property of the delegate
+
+/*
+Congrats on completing our whirlwind tour of Groovy! There are many
+resources to help you learn more, including:
+    http://learnxinyminutes.com/docs/groovy/
+    http://www.groovy-lang.org/documentation.html
+*/
