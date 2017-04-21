@@ -77,3 +77,24 @@ assignment of arguments to function calls is unambiguous.
 These syntactic features are part of what make Groovy such a good choice for a
 domain specific language. Let's define a function.
 */
+
+def doubleIt(n) {
+    n + n // Note we don't need a return statement
+}
+
+/*
+Note that we don't need to specify the type of the arguments, nor the return
+type. We don't even need to supply a return statement. The last expression in
+the block is returned. Let's give it a try.
+*/
+
+foo = 5
+println "doubleIt($foo) = ${doubleIt(foo)}"
+
+/*
+Even more interestingly, since the plus sign is overloaded to concatenate
+strings, we can call our function with a string as well.
+*/
+
+foo = "foobar"
+println "doubleIt($foo) = ${doubleIt(foo)}"
