@@ -1,0 +1,37 @@
+/*
+Now that we can declare tasks, it's time to think about the relationships
+between tasks. For example, in a Java build, we can't JAR up our library
+before compiling our sources. We model these relationships by task
+dependencies and ordering.
+
+We'll discuss three ways to configure the relationships between tasks:
+`dependsOn`, `finalizedBy`, and `mustRunAfter`.
+
+Task A `dependsOn` task B if task A can't do its work without task B having
+done its work. To take a familiar example, when you're getting up in the
+morning, you can't put on your shoes without putting on your socks first.
+Let's declare and configure some tasks to represent this process.
+
+*/
+
+task putOnSocks {
+  doLast {
+    println "Putting on Socks."
+  }
+}
+
+task putOnShoes {
+  dependsOn "putOnSocks"
+  doLast {
+    println "Putting on Shoes"
+  }
+}
+
+/*
+
+One thing to note is that if you run `gradle tasks`, you won't see
+`putOnSocks`. That's because Gradle assumes that `putOnSocks` exists only to
+help `putOnShoes` do its job. You can still see the `putOnSocks` task by
+running `gradle tasks --all`.
+
+*/
