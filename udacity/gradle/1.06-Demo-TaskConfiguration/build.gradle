@@ -90,3 +90,28 @@ task myTask7 {
         println "Here's the action"
     }
 }
+
+/*
+One more important piece of syntax. There are some task properties you can set
+using the following syntax:
+*/
+
+task myTask8(description: "Another description") {
+    doLast {
+        println "Doing something"
+    }
+}
+
+/*
+Not all task properties can be set this way, however. Check out this list for
+the complete story:
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskContainer.html#create(java.util.Map)
+
+The choice to set properties here or in the configuration block or even later
+on in the script is mostly up to readability, except for one case. If you are
+giving your task a type, that needs to be declared here, and not in a
+configuration block. We'll talk more task types that when we work with file
+system tasks.
+
+*/
