@@ -17,3 +17,23 @@ myClosure()
 def bar = myClosure
 def baz = bar
 baz()
+
+/*
+Closures have a different notation for arguments.
+*/
+
+def doubleIt = { x -> x + x}
+
+/*
+Groovy also allows for higher order functions. That is, functions that take
+functions as arguments. Let's make a function that applies another function
+twice.
+*/
+
+def applyTwice(func, arg){
+    func(func(arg))
+}
+
+foo = 5
+def fooDoubledTwice = applyTwice(doubleIt, foo)
+println "Applying doubleIt twice to $foo equals $fooDoubledTwice"
