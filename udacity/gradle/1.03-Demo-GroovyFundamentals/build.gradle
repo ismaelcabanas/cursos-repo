@@ -98,3 +98,30 @@ strings, we can call our function with a string as well.
 
 foo = "foobar"
 println "doubleIt($foo) = ${doubleIt(foo)}"
+
+/*
+Let's define a few functions to show off one of the coolest syntactic features
+of Groovy; you don't need to use parentheses to call a function with at least
+one argument.
+*/
+
+def noArgs() {
+    println "Called the no args function"
+}
+
+def oneArg(x) {
+    println "Called the 1 arg function with $x"
+    x
+}
+
+def twoArgs(x, y) {
+    println "Called the 2 arg function with $x and $y"
+    x + y
+}
+
+oneArg 500 // Look, Ma! No parentheses!
+twoArgs 200, 300
+noArgs()
+//noArgs // Doesn't work
+//twoArgs oneArg 500, 200 // Also doesn't work as it's ambiguous
+twoArgs oneArg(500), 200 // Fixed the ambiguity
