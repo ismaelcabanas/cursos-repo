@@ -113,3 +113,25 @@ Oops, we put on our shoes before taking a shower! Let's put in another
 */
 
 putOnShoes.mustRunAfter takeShower
+
+/*
+One more advanced thing we can do is look at all the tasks in the project and
+decide which ones we want to depend on. Let's make a task called `getEquipped`
+that depends on every task that starts with "putOn".
+*/
+
+task getEquipped {
+    dependsOn tasks.matching{ task -> task.name.startsWith("putOn")}
+    doLast {
+        println "All geared up!"
+    }
+}
+
+/*
+You don't need to understand all the Groovy and Gradle in that last example
+quite yet. We just wanted to show off some of the power of Gradle. This is the
+sort of thing that's difficult or impossible hard to do with other build
+tools. For more information about tasks, check out this section of the Gradle
+user guide for more info:
+    https://docs.gradle.org/current/userguide/more_about_tasks.html
+*/
