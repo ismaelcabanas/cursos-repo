@@ -50,3 +50,9 @@ the end of the list using the `doLast` method.
 */
 
 myTask4.doLast {println "Do this last"}
+
+/*
+We can also add actions to the start of the list using `doFirst`.
+*/
+
+myTask4.doFirst {println "Do this first"}
