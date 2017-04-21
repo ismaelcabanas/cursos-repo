@@ -35,3 +35,25 @@ help `putOnShoes` do its job. You can still see the `putOnSocks` task by
 running `gradle tasks --all`.
 
 */
+
+/*
+
+Task A is `finalizedBy` task B if every time task A runs, task B should be run
+afterwards. To continue our example, every time you eat breakfast, you must
+brush your teeth afterwards. Let's create those tasks, and declare the
+relationship between them.
+
+*/
+
+task eatBreakfast {
+    finalizedBy "brushYourTeeth"
+    doLast{
+        println "Om nom nom breakfast!"
+    }
+}
+
+task brushYourTeeth {
+    doLast {
+        println "Brushie Brushie Brushie."
+    }
+}
