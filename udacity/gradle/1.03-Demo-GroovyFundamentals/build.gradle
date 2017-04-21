@@ -23,3 +23,17 @@ selecting View > Syntax > Open all with current extension as... > Groovy
 task groovy << {}
 
 println "Hello Groovy!"
+
+/*
+Most valid Java is also valid Groovy, and we can interoperate with Java, as
+well as access the standard library. Let's make a Java class.
+*/
+
+class JavaGreeter {
+    public void sayHello() {
+        System.out.println("Hello Java!");
+    }
+}
+
+JavaGreeter greeter = new JavaGreeter()
+greeter.sayHello()
