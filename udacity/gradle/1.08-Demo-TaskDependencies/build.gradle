@@ -57,3 +57,40 @@ task brushYourTeeth {
         println "Brushie Brushie Brushie."
     }
 }
+
+/*
+
+The use case for `mustRunAfter` is slightly less obvious. Say we have a long
+running process that's unlikely to fail, like deploying some artifact to a
+continuous integration server, and we also have a short running task that is
+likely to fail, like running unit tests. Those two tasks don't have any
+dependency relationship, but if we're running both, we would really like the
+unit tests to run before the integration tests.
+
+To continue our morning routine example, let's consider showering and putting
+on a fragrance like perfume or cologne. Putting on a fragrance doesn't require
+showering, and showering doesn't require putting on a fragrance, but if we're
+going to both take a shower and also put on a fragrance, we should take the
+shower first. Let's create those tasks and the relationship between them.
+
+*/
+
+task takeShower {
+    doLast {
+        println "Taking a shower."
+    }
+}
+
+task putOnFragrance {
+    shouldRunAfter "takeShower"
+    doLast{
+        println "Smellin' fresh!"
+    }
+}
+
+/*
+
+Now if we run `gradle putOnFragrance takeShower`, we see that we do the tasks
+in the proper order.
+
+*/
