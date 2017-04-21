@@ -47,13 +47,14 @@ task pour {
 }
 
 task addSweetener {
+    dependsOn "pour"
     doLast {
         println "Adding sweetener. Stir, stir, stir."
     }
 }
 
 task drink {
-    dependsOn "pour"
+    shouldRunAfter "addSweetener"
     doLast {
         println "Drinking. Gulp, gulp, gulp."
     }
