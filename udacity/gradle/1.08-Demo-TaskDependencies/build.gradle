@@ -106,3 +106,10 @@ task getReady {
     // equals sign
     dependsOn = ["takeShower", "eatBreakfast", "putOnShoes"]
 }
+
+/*
+Oops, we put on our shoes before taking a shower! Let's put in another
+`mustRunAfter` relationship.
+*/
+
+putOnShoes.mustRunAfter takeShower
