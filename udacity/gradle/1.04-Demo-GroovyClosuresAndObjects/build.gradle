@@ -1,0 +1,16 @@
+/*
+Groovy has another way to declare functions called closures. Closures have
+two interesting features. First, they are just values that can be assigned to
+a variable, just like a number or a string. Second, they can capture variables
+from the scope in which they're declared.
+*/
+
+task groovy {}
+
+def foo = "One million dollars"
+def myClosure = {
+    println "Hello from a closure"
+    println "The value of foo is $foo"
+}
+
+myClosure()
