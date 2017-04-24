@@ -1,7 +1,5 @@
 /*
-
 Solution:
-
 */
 
 task hello(type: HelloTask)
@@ -9,17 +7,30 @@ task hello(type: HelloTask)
 class HelloTask extends DefaultTask {
     @TaskAction
     void doAction() {
-        // 1. Add logging statement at the beginning of the task action
         logger.info 'Start HelloTask Action'
-        // 3. Add logging statement at the lifecycle level
         logger.lifecycle 'Hello World'
-        // 1. Add logging statement at the end of the task action
         logger.info 'End HelloTask Action'
     }
 }
 
 /*
-task derpy << {
-    primp "Herp de derp"
-}
+The error in the "derpy" task is:
+Caused by: org.gradle.api.internal.MissingMethodException: Could not find method primp() for arguments [Herp de derp] on root project '1.16-Exercise-InvestigateLogging'.
+Challenge solution:
+    $ gradle -b solution.gradle --debug hello | grep 'Catch me if you can'
+or in Windows:
+    $ gradle -b solution.gradle --debug hello | findstr "Catch me if you can"
 */
+
+logger.debug "Catch me if you can"
+
+/*
+Solution to the quiz question.
+    $ gradle -b solution.gradle --debug hello2 | grep 'Hello World'
+or in Windows:
+    $ gradle -b solution.gradle --debug hello2 | findstr "Hello World"
+*/
+
+task hello2 << {
+    println "Hello World"
+}
