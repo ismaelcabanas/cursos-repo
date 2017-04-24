@@ -11,7 +11,8 @@ class HelloTask extends DefaultTask {
     void doAction() {
         // 1. Add logging statement at the beginning of the task action
         logger.info 'Start HelloTask Action'
-        println 'Hello World'
+        // 3. Add logging statement at the lifecycle level
+        logger.lifecycle 'Hello World'
         // 1. Add logging statement at the end of the task action
         logger.info 'End HelloTask Action'
     }
