@@ -29,3 +29,11 @@ task copyWeb(type: Copy){
     from 'src/web'
     into 'build/web'
 }
+
+task bundleWeb(type: Zip){
+    dependsOn "copyWeb"
+    baseName = "web"
+    destinationDir = file("build")
+    from 'build/web'
+    exclude 'images'
+}
