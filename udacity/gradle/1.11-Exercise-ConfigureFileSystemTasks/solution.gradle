@@ -26,8 +26,14 @@
 */
 
 task copyWeb(type: Copy){
-    from 'src/web'
-    into 'build/web'
+    from('src/web'){
+      into 'web'
+    }
+    from('src/docs'){
+      include '*.txt'
+      into 'web/help'
+    }
+    into 'build'
 }
 
 task bundleWeb(type: Zip){
@@ -36,4 +42,8 @@ task bundleWeb(type: Zip){
     destinationDir = file("build")
     from 'build/web'
     exclude 'images'
+}
+
+task unpackBundle {
+    dependsOn 'bundleWeb'
 }
