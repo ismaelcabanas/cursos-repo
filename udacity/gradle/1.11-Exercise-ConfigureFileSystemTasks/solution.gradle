@@ -26,22 +26,21 @@
 */
 
 task copyWeb(type: Copy){
-    from('src/web'){
-      into 'web'
-    }
+    from 'src/web'
+
     from('src/docs'){
       include '*.txt'
-      into 'web/help'
+      into 'help'
     }
-    into 'build'
+    into 'build/web'
 }
 
-task bundleWeb(type: Zip){
-    dependsOn "copyWeb"
+task bundleWeb(type: Zip, dependsOn: copyWeb){
     baseName = "web"
     destinationDir = file("build")
+
     from 'build/web'
-    exclude 'images'
+    exclude 'images/**'
 }
 
 task unpackBundle(type: Copy) {
@@ -50,7 +49,6 @@ task unpackBundle(type: Copy) {
     into 'build/exploded'
 }
 
-task deleteHelp(type: Delete){
-  dependsOn 'copyWeb'
+task deleteHelp(type: Delete, dependsOn: copyWeb){
   delete 'build/web/help'
 }
