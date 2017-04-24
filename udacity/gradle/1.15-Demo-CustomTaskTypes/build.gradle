@@ -1,8 +1,12 @@
-class MyTask extends DefaultTask{
+class HelloNameTask extends DefaultTask{
+  String firstName
+
   @TaskAction
   void doAction(){
-    println "Hello world"
+    println "Hello, $firstName"
   }
 }
 
-task hello(type: MyTask)
+task helloName(type: HelloNameTask){
+  firstName = 'Ismael'
+}
