@@ -1,0 +1,24 @@
+/*
+
+Solution:
+
+*/
+
+task hello(type: HelloTask)
+
+class HelloTask extends DefaultTask {
+    @TaskAction
+    void doAction() {
+        // 1. Add logging statement at the beginning of the task action
+        logger.info 'Start HelloTask Action'
+        println 'Hello World'
+        // 1. Add logging statement at the end of the task action
+        logger.info 'End HelloTask Action'
+    }
+}
+
+/*
+task derpy << {
+    primp "Herp de derp"
+}
+*/
