@@ -1,0 +1,22 @@
+/*
+    Solution:
+
+*/
+
+apply plugin: 'java'
+
+// 1. Configure Maven Central as a repository
+repositories{
+  mavenCentral()
+}
+
+dependencies{
+  compile 'commons-io:commons-io:2.5' // 2. Add a dependency to the 'compile' configuration for the latest version of commons-io.
+  compile fileTree(dir: 'libs', include: '*.jar') //3. Add a file dependency that includes all the jars in the `libs` directory.
+}
+
+task printDependencies {
+    doLast {
+        configurations.compile.each { println it.name }
+    }
+}
