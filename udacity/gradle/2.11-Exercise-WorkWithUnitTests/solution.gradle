@@ -1,0 +1,15 @@
+/*
+Solution: Change the src/main/java/com/udacity/gradle/Person.java
+file, in the getName() method to return the name field
+*/
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+// 1. Add a test dependency to the latest version of 'junit'
+dependencies{
+  testCompile 'junit:junit:4.12'
+}
